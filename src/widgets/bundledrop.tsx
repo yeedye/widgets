@@ -1,3 +1,4 @@
+import { ColorModeScript } from '@chakra-ui/react'
 import { BundleDropModule, ThirdwebSDK } from "@3rdweb/sdk";
 import {
   Button,
@@ -216,7 +217,9 @@ const ClaimButton: React.FC<ClaimPageProps> = ({
     expectedChainId,
   );
 
-  const isNotSoldOut = claimed.lt(BigNumber.from(totalAvailable));
+  // const isNotSoldOut = claimed.lt(BigNumber.from(totalAvailable));
+  const available = BigNumber.from(activeClaimCondition.data?.availableSupply || 0);
+  const isNotSoldOut = available.gt(BigNumber.from(0));
 
   useEffect(() => {
     let t = setTimeout(() => setClaimSuccess(false), 3000);
@@ -331,7 +334,7 @@ const ClaimButton: React.FC<ClaimPageProps> = ({
       </Flex>
       <Text size="label.md" color="green.800">
         {`${parseHugeNumber(claimed)} / ${parseHugeNumber(
-          totalAvailable,
+          claimed.add(available)
         )} claimed`}
       </Text>
     </Stack>
@@ -549,7 +552,7 @@ const DropWidget: React.FC<DropWidgetProps> = ({
       shadow="0px 1px 1px rgba(0,0,0,0.1)"
       border="1px solid"
       borderColor="blackAlpha.100"
-      bg="white"
+      bg={chakraTheme.colors.backgroundLight}
     >
       <Header
         sdk={sdk}
@@ -575,7 +578,7 @@ const DropWidget: React.FC<DropWidgetProps> = ({
           />
         )}
       </Body>
-      <Footer />
+      {/* <Footer /> */}
     </Flex>
   );
 };
@@ -638,4 +641,7 @@ const App: React.FC = () => {
   );
 };
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<>
+    <ColorModeScript initialColorMode={chakraTheme.config.initialColorMode} />
+    <App />
+  </>, document.getElementById("root"));
