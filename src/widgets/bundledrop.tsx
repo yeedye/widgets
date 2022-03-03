@@ -332,7 +332,7 @@ const ClaimButton: React.FC<ClaimPageProps> = ({
             : "Minting Unavailable"}
         </Button>
       </Flex>
-      <Text size="label.md" color="green.800">
+      <Text size="label.md" color="green.600">
         {`${parseHugeNumber(claimed)} / ${parseHugeNumber(
           claimed.add(available)
         )} claimed`}
@@ -392,7 +392,7 @@ const ClaimPage: React.FC<ClaimPageProps> = ({
             <Icon maxW="100%" maxH="100%" as={DropSvg} />
           )}
         </Grid>
-        <Heading size="display.md" color="gray.400" fontWeight="title" as="h1">
+        <Heading size="display.md" color="gray.200" fontWeight="title" as="h1">
           {metaData?.name}
         </Heading>
         {metaData?.description && (
@@ -442,7 +442,7 @@ const InventoryPage: React.FC<ModuleInProps> = ({
     return (
       <Center w="100%" h="100%">
         <Stack spacing={4} direction="column" align="center">
-          <Heading size="label.sm">
+          <Heading color="gray.200" size="label.sm">
             Connect your wallet to see your owned drops
           </Heading>
           <ConnectWalletButton expectedChainId={expectedChainId} />
@@ -592,7 +592,8 @@ const App: React.FC = () => {
   const rpcUrl = urlParams.get("rpcUrl") || ""; //default to expectedChainId default
   const tokenId = urlParams.get("tokenId") || "";
   const relayUrl = urlParams.get("relayUrl") || "";
-  let ipfsGateway = urlParams.get("ipfsGateway") || "";
+  // let ipfsGateway = urlParams.get("ipfsGateway") || "";
+  let ipfsGateway = "https://infura-ipfs.io/ipfs/";
 
   if (ipfsGateway.length === 0) {
     // handle origin split ipfs gateways

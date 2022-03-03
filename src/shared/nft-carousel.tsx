@@ -84,11 +84,11 @@ export const NftCarousel: React.FC<NftCarouselProps> = ({ metadata }) => {
                     title={nft.name}
                   />
                 </AspectRatio>
-                <Heading fontWeight={500} fontSize="18px" size="sm" as="h3" color="gray.400">
+                <Heading fontWeight={500} fontSize="18px" size="sm" as="h3" color="gray.300">
                   {nft.name}
                 </Heading>
                 {nft.supply && (
-                  <Text color="gray.400">
+                  <Text color="gray.300">
                     <strong>Quantity:</strong> {nft.supply}
                   </Text>
                 )}
