@@ -21,7 +21,7 @@ const breakpoints = createBreakpoints({
 const chakraTheme: Theme = extendTheme(
   {
     config: {
-      initialColorMode: "light",
+      initialColorMode: "dark",
       useSystemColorMode: false,
     } as Theme["config"],
     fonts: {

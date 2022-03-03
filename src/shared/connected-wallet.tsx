@@ -107,8 +107,8 @@ export const ConnectedWallet: React.FC<IConnectedWallet> = ({ sdk, tokenAddress 
           <Button 
             variant="outline"
             size="sm"
-            color="gray.800"
-            leftIcon={<Icon as={IoWalletOutline} color="gray.500" boxSize={4} />}
+            color="gray.100"
+            leftIcon={<Icon as={IoWalletOutline} color="gray.100" boxSize={4} />}
             onClick={onOpen}
           >
             {shortenAddress(data.address)}
@@ -136,7 +136,7 @@ export const ConnectedWallet: React.FC<IConnectedWallet> = ({ sdk, tokenAddress 
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
         <ModalContent pb={4} bg="gray.50">
-          <ModalCloseButton />
+          <ModalCloseButton color="gray.800" />
 
           <ModalHeader>
             <Heading size="label.lg">Account Details</Heading>
@@ -154,13 +154,13 @@ export const ConnectedWallet: React.FC<IConnectedWallet> = ({ sdk, tokenAddress 
                     aria-label="Add to friends"
                     variant="outline"
                     size="sm"
-                    icon={<Icon as={IoCopy} />}
+                    icon={<Icon as={IoCopy} color="gray.800" />}
                   />
-                  <Button size="sm" variant="outline" width="120px" onClick={copyAddress}>
+                  <Button size="sm" variant="outline" width="120px" color="gray.800" onClick={copyAddress}>
                     {shortenAddress(data?.address || "")}
                   </Button>
                   {data?.connector?.getProvider()?.isMetaMask && (
-                    <Button size="sm" onClick={switchWallet}>
+                    <Button color="gray.800" size="sm" onClick={switchWallet}>
                       Switch
                     </Button>
                   )}

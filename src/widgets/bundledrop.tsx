@@ -392,7 +392,7 @@ const ClaimPage: React.FC<ClaimPageProps> = ({
             <Icon maxW="100%" maxH="100%" as={DropSvg} />
           )}
         </Grid>
-        <Heading size="display.md" fontWeight="title" as="h1">
+        <Heading size="display.md" color="gray.400" fontWeight="title" as="h1">
           {metaData?.name}
         </Heading>
         {metaData?.description && (
@@ -552,7 +552,7 @@ const DropWidget: React.FC<DropWidgetProps> = ({
       shadow="0px 1px 1px rgba(0,0,0,0.1)"
       border="1px solid"
       borderColor="blackAlpha.100"
-      bg={chakraTheme.colors.backgroundLight}
+      bg={chakraTheme.colors.backgroundDark}
     >
       <Header
         sdk={sdk}
